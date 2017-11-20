@@ -247,8 +247,8 @@
 				success : function(obj){
 					var resultMsg = '<option value="">请选择</option>';
 					$("#leafColumnId").empty();
+					var leafColumnId = '${columnId}';
 					if(obj != null && obj.data != null ){
-						var leafColumnId = '${columnId}';
 						for(var i=0;i<obj.data.length;i++){
 							var selectedStr = "";
 							if(leafColumnId == obj.data[i].id){
@@ -260,9 +260,9 @@
 					$("#leafColumnId").append(resultMsg);
 					if(articleId == null || articleId == ''){
 						$("#rootColumnId").prev("span").html($("#rootColumnId").find("option:selected").html());
-						$("#leafColumnId").prev("span").html($("#leafColumnId").find("option:selected").html());
 					}else{
-						$("select").change();
+                        			$("#leafColumnId").val(leafColumnId);
+                        			$("#leafColumnId").prev("span").html($("#leafColumnId").find("option:selected").html());
 					}
 				}
 			});
